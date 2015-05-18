@@ -58,12 +58,13 @@ app.get('/trucks/:name',function(request,response){
 	if(foodType.length===0){
 		foodString = 'no entry found';
 	}else if(foodType.length>0){
-		foodString = foodType[0];
-		if(foodType.length>1){
-			for(i=1;i<foodType.length;i++){
-				foodString = foodString + ', ' + foodType[i];
-			}
-		}
+		foodString = foodType.join(', ');
+	//	foodString = foodType[0];
+	//	if(foodType.length>1){
+	//		for(i=1;i<foodType.length;i++){
+	//			foodString = foodString + ', ' + foodType[i];
+	//		}
+	//	}
 	}
   }else{
 	foodString = 'no foodtypes listed';
@@ -73,12 +74,13 @@ app.get('/trucks/:name',function(request,response){
   var payString = '';
   if(payMethod){
 		// build the payString - taking into account if blank, one entry, or many
-		payString = payMethod[0];
-		if(payMethod.length>1){
-			for(i=1;i<payMethod.length;i++){
-				payString = payString + ', ' + payMethod[i];
-			}
-		}
+		payString = payMethod.join(', ');
+		//payString = payMethod[0];
+		//if(payMethod.length>1){
+		//	for(i=1;i<payMethod.length;i++){
+		//		payString = payString + ', ' + payMethod[i];
+		//	}
+		//}
   }else{
 	  payString = 'No payment methods listed.';
   }
@@ -95,12 +97,13 @@ app.get('/trucks/:name',function(request,response){
   var schedString = '';
   if(truckSchedule){
       // build the payString - taking into account if blank, one entry, or many
-	schedString = truckSchedule[0];
-	if(truckSchedule.length>1){
-		for(i=1;i<truckSchedule.length;i++){
-			schedString = schedString + ', ' + truckSchedule[i];
-		}
-	}
+	schedString = truckSchedule.join(', ');
+	//schedString = truckSchedule[0];
+	//if(truckSchedule.length>1){
+	//	for(i=1;i<truckSchedule.length;i++){
+	//		schedString = schedString + ', ' + truckSchedule[i];
+	//	}
+	//}
   }else{
 	  schedString = 'No schedule available for this truck.';
   }
